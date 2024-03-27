@@ -36,7 +36,7 @@ const pontos = [
 
 async function pointRoutes(fastify, options) {
   fastify.post(
-    "/registro_ponto",
+    "/point_register",
     { preHandler: verifyToken },
     async (request, reply) => {
       const { usuario } = request;
@@ -51,8 +51,8 @@ async function pointRoutes(fastify, options) {
   );
 
   fastify.get(
-    "/historico_pontos",
-    { preHandler: verifyToken },
+    "/points_history",
+    // { preHandler: verifyToken },
     async (request, reply) => {
       reply.code(200).send(pontos);
     }
