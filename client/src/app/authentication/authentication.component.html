@@ -1,0 +1,13 @@
+<div class="center-container">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-input label="Usuário:" placeholder="Digite o usuário" [(ngModel)]="user"></ion-input>
+      <ion-input label="Senha:" type="password" placeholder="Digite a senha" [(ngModel)]="password"></ion-input>
+      <ion-button expand="block" color="primary" (click)="authUser()">Entrar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
