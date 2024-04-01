@@ -1,8 +1,23 @@
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let point of points">
-      <ion-label>{{ point.date }}</ion-label>
-      <ion-note slot="end">{{ point.value }}</ion-note>
-    </ion-item>
-  </ion-list>
+  <ion-header [translucent]="true">
+    <ion-toolbar color="light">
+      <ion-buttons slot="start" (click)="moveMonth('previous')">
+        <ion-back-button default-href=""></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ currentMonth }}</ion-title>
+      <ion-buttons slot="end" (click)="moveMonth('next')">
+        <ion-back-button default-href="" direction="forward"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
+    <ion-accordion *ngFor="let item of daysOfCurrentMonth">
+      <ion-item slot="header" color="light">
+        <ion-label>{{ item.weekDay }}</ion-label>
+        <ion-label>{{ item.date }}</ion-label>
+        <ion-label>{{ item.registered }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">Horários</div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

@@ -1,0 +1,9 @@
+ion-buttons:not(:first-child) {
+  ion-back-button {
+    transform: scaleX(-1);
+  }
+}
+
+ion-title {
+  text-align: center;
+}
