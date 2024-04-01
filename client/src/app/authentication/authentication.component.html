@@ -5,9 +5,15 @@
     </ion-card-header>
 
     <ion-card-content>
-      <ion-input label="Usuário:" placeholder="Digite o usuário" [(ngModel)]="user"></ion-input>
-      <ion-input label="Senha:" type="password" placeholder="Digite a senha" [(ngModel)]="password"></ion-input>
-      <ion-button expand="block" color="primary" (click)="authUser()">Entrar</ion-button>
+      <form #authForm="ngForm" (ngSubmit)="authUser()">
+        <ion-input name="user" label="Usuário:" placeholder="Digite o usuário" [(ngModel)]="user" required></ion-input>
+        <ion-input name="password" label="Senha:" type="password" placeholder="Digite a senha" [(ngModel)]="password"
+                   required></ion-input>
+        <ion-button type="submit" expand="block" color="primary" [disabled]="!authForm.form.valid">Entrar</ion-button>
+      </form>
+      <div *ngIf="!authForm.form.valid" class="alert alert-danger">
+        Both fields are required!
+      </div>
     </ion-card-content>
   </ion-card>
 </div>
